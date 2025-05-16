@@ -1,0 +1,47 @@
+.auth-container {
+  max-width: 320px;
+  margin: 100px auto;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.auth-container h2 {
+  margin-bottom: 16px;
+}
+.auth-container label {
+  display: block;
+  margin: 8px 0 4px;
+  text-align: left;
+}
+.auth-container input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.auth-container button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  background: #3182ce;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.auth-container button:hover {
+  background: #a9b5c2;
+}
+.toSign {
+  background: transparent;
+  color: #a8d1f7;
+  border: none;
+  margin-top: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+}
