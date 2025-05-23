@@ -23,6 +23,10 @@ export default function MyEvents() {
 `
 
   //fetch y render
+  // IIFE async, parecido a   setTimeout, usando metodo async await lo que me genera el retraso sera el await.   Mi router asume que vada view() devuelve un string y lo inyecta en el innerHtml de inmediato. s
+  //i me quedo solo con export function default async Ok, recibo una promesa, puedo convertir la promesa a string y pasarla igual por mi router para terminar en navigate pero deberia configurar en cada ruta un await o un .catch,
+  // busco tener inmediatez de carga y separo la sincronia de lo que debe esperar a lo sincrono mediante settimeouts o async.
+
   ;(async () => {
     try {
       const events = await request('/users/myEvents')
