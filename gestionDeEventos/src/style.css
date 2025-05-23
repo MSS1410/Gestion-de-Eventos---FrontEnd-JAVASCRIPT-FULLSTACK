@@ -1,34 +1,30 @@
-.dashboard {
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(234, 233, 233);
   display: grid;
-  grid-template-columns: 2.5fr 0.5fr;
-  gap: 1rem;
-  padding: 1rem;
-  height: calc(100vh - var(--header-height) - var(--footer-height) - 200px);
-}
-
-/* listado de eventos con scroll  */
-.events-list {
-  background: #f9fafbb8;
-  padding: 1rem;
-  overflow-y: auto;
-}
-
-.events-list ul {
-  list-style: none;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
 }
 
-/* aside de usuarios con scroll  */
-
-.users-list {
-  background: rgb(75, 35, 150);
-  padding: 1rem;
-  overflow-y: auto;
+#main-root {
+  min-height: 0;
 }
+.community {
+  min-height: 0;
 
-.users-list ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.eventDetail {
+  display: flex;
+  flex-direction: column;
 }

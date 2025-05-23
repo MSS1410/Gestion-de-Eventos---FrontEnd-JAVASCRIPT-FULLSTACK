@@ -1,11 +1,13 @@
 .auth-container {
-  max-width: 320px;
+  width: 100%;
+  max-width: 400px;
+  padding: 24px;
+
   margin: 100px auto;
-  border: 1px solid #000000;
+  border: 5px solid rgb(105, 58, 162);
   border-radius: 8px;
-  background: #fff;
+  background: #ffffff80;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
 }
 
 .auth-container h2 {
@@ -28,8 +30,6 @@
   width: 100%;
   padding: 10px;
   margin-top: 8px;
-  background: #3182ce;
-  color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -37,11 +37,14 @@
 .auth-container button:hover {
   background: #a9b5c2;
 }
-.toSign {
-  background: transparent;
-  color: #a8d1f7;
+
+.auth-container .LogIn {
+  background: rgb(105, 58, 162);
+}
+
+.auth-container .toSign {
+  background: #36628b;
   border: none;
   margin-top: 12px;
-  text-decoration: underline;
   cursor: pointer;
 }

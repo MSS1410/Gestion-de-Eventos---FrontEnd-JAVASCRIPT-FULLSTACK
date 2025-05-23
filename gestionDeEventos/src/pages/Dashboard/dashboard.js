@@ -1,12 +1,28 @@
-import { request } from '../../services/api.js'
 import './dashboard.css'
-import Swiper from 'swiper'
+import { request } from '../../services/api.js'
+
+import getUserFromToken from '../../app.js'
+import { navigate } from '../../app.js'
+import HeaderApp from '../../components/header/headerApp/HeaderApp.js'
+import FooterApp from '../../components/footer/footerApp/footerApp.js'
+
+import initSwiper from '../../components/swiper/SwiperComp.js'
 import 'swiper/css'
 
 export default function Dashboard() {
+  const mainRoot = document.getElementById('main-root')
+  mainRoot.className = 'dashboard'
+  //lee usuario
+  const user = getUserFromToken()
+  if (!user) {
+    return '<p>Innaccesible site</p>'
+  }
+  document.getElementById('header-root').innerHTML = HeaderApp(user)
+  document.getElementById('footer-root').innerHTML = FooterApp()
+
   const html = `
       <section class="events-list">
-        <h2>Eventos Disponibles</h2>
+        <h2>Eventos Disponibles</h2> 
           <ul id="events-list"></ul>
        </section>
 
@@ -26,44 +42,44 @@ export default function Dashboard() {
   ;(async () => {
     try {
       // carga de eventos
-      const events = await request('/events')
+      const events = await request('/events/get')
+
       const listHTML = events
-        .map((ev) => {
-          const fecha = new Date(ev.date).toLocaleDateString()
-          return `<li>${fecha} — ${ev.title}</li>`
+
+        .map((eve) => {
+          const fecha = new Date(eve.date).toLocaleDateString()
+          return `
+          <li>
+          <a href="/events/${eve._id}"
+          onclick="event.preventDefault(); navigate("/events/${eve._id}")"
+
+              <span class="event-date">${fecha}</span>
+            <span class="event-title">${eve.title} -</span>
+              <span class="event-location">${eve.location}</span>
+          
+          </a>
+          </li>
+          `
         })
         .join('')
+      // ★ Inyectamos aquí la lista de eventos ★
+      document.getElementById('events-list').innerHTML = listHTML
+
       //USERS ASIDE
       const users = await request('/users')
       const usersHTML = users
         .map(
           (user) =>
             `<li>
-          <img src="${user.avatarLink}" class="avatar-sm" /> ${user.name}
+          <img src="${user.avatarLink}" class="avatar-img" /> 
+          <span class=""user-name">${user.name}</span>
           </li>`
         )
         .join('')
       document.getElementById('users-list').innerHTML = usersHTML
 
-      //SWIPER
-
-      const wrapper = document.querySelector(
-        '#swiper-container .swiper-wrapper'
-      )
-      events.forEach((eve) => {
-        const slide = document.createElement('div')
-        slide.className = 'swiper-slide'
-
-        slide.innerHTML = `<img src="${eve.eventImageUrl}" alt="${eve.title}" />`
-        wrapper.append(slide)
-      })
-
-      new Swiper('#swiper-container', {
-        loop: true,
-        autoplay: { delay: 3000 },
-        slidesPerView: 1,
-        spaceBetween: 10
-      })
+      const swiperContainer = document.getElementById('swiper-container')
+      initSwiper(swiperContainer, events)
     } catch (error) {
       console.error('error while loading Dashboard:', error)
 

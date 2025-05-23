@@ -1,10 +1,13 @@
 export async function request(path, options = {}) {
   const url = import.meta.env.VITE_API_URL + path
-
   const token = localStorage.getItem('token')
-  const headers = {
-    'Content-Type': 'application/json',
 
+  const isForm = options.body instanceof FormData
+
+  const headers = {
+    // solo json cuando no sea formData, file
+
+    ...(!isForm && { 'Content-Type': 'application/json' }),
     ...(token && { Authorization: `Bearer ${token}` }),
     ...options.headers
   }
