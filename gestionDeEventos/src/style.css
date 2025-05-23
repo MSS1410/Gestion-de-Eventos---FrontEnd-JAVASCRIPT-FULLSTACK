@@ -28,3 +28,261 @@ body {
   display: flex;
   flex-direction: column;
 }
+/* responsive mobiles */
+@media (max-width: 576px) {
+  /* Header: columna y centrado */
+  .header-app {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+  }
+
+  .community,
+  .eventDetail {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  .dashboard {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.75rem;
+  }
+  .events-list {
+    margin-left: 0;
+    padding: 0.5rem;
+  }
+
+  .create-event,
+  .event-edit,
+  .auth-container,
+  .my-events-page {
+    width: 100%;
+    margin: 1rem 0;
+    padding: 1rem;
+  }
+
+  .profile-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .footer-columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* responsive tableta */
+@media (min-width: 768px) {
+  .header-app {
+    flex-direction: row;
+    padding: 0.5rem 2rem;
+  }
+
+  .community,
+  .eventDetail {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  .community-list {
+    padding: 0 2rem;
+  }
+
+  .dashboard {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  .events-list {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  .create-event {
+    max-width: 700px;
+    margin: 2rem auto;
+  }
+  .event-edit {
+    max-width: 90%;
+    margin: 2rem auto;
+    padding: 2rem;
+  }
+
+  .auth-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+  }
+
+  .my-events-page {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .profile-grid {
+    gap: 2rem;
+  }
+  .footer-columns {
+    gap: 2rem;
+  }
+}
+/* ─── Responsive: Teléfonos (≤576px) ─── */
+@media (max-width: 576px) {
+  /* Header: columna y centrado */
+  .header-app {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+  }
+
+  /* Comunidad y detalle de evento: columna y menos padding */
+  .community,
+  .eventDetail {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  /* Dashboard: una columna */
+  .dashboard {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.75rem;
+  }
+  .events-list {
+    margin-left: 0;
+    padding: 0.5rem;
+  }
+
+  /* Formularios y contenedores: ancho completo */
+  .create-event,
+  .event-edit,
+  .auth-container,
+  .my-events-page {
+    width: 100%;
+    margin: 1rem 0;
+    padding: 1rem;
+  }
+
+  /* Perfil y footer: una columna */
+  .profile-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .footer-columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* ─── Responsive: Tablet en adelante (≥768px) ─── */
+@media (min-width: 768px) {
+  .header-app {
+    flex-direction: row;
+    padding: 0.5rem 2rem;
+  }
+
+  .community,
+  .eventDetail {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  .community-list {
+    padding: 0 2rem;
+  }
+
+  .dashboard {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  .events-list {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  .create-event {
+    max-width: 700px;
+    margin: 2rem auto;
+  }
+  .event-edit {
+    max-width: 90%;
+    margin: 2rem auto;
+    padding: 2rem;
+  }
+
+  .auth-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+  }
+
+  .my-events-page {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .profile-grid {
+    gap: 2rem;
+  }
+  .footer-columns {
+    gap: 2rem;
+  }
+}
+
+/* mejoras para pantallas grandes */
+@media (min-width: 992px) {
+  .header-app {
+    padding: 1rem 4rem;
+  }
+
+  .community,
+  .eventDetail {
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .dashboard {
+    grid-template-columns: 3fr 1fr;
+    gap: 2rem;
+    padding: 2rem 4rem;
+  }
+
+  .create-event {
+    max-width: 800px;
+  }
+  .event-edit {
+    max-width: 60%;
+    margin: 2rem auto;
+  }
+
+  .auth-container {
+    margin: 3rem auto;
+  }
+
+  .my-events-page {
+    margin: 3rem auto;
+  }
+
+  .profile-grid {
+    gap: 3rem;
+  }
+  .footer-columns {
+    gap: 4rem;
+  }
+}
